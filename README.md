@@ -1,0 +1,2 @@
+# CLibPrj
+CLipPrjのリモートリポジトリだよ
