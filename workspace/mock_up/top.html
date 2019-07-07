@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/common.css">
+  <link rel="stylesheet" type="text/css" href="./css/top.css">
+  <script src="./js/navigatorMenu.js" ></script>
+  <script src="./js/topMenu.js" ></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header id="js-main_header" class="header">
+    <!-- ヘッダータイトル -->
+    <h2 class="title"><span class="high_light_letter">C</span> <span class="high_light_letter">Lib</span>rary <span class="high_light_letter">S</span>ystem</h2>
+    <!-- グローバルナビゲーションの表示欄 -->
+    <nav class="global-nav" id="js-global-nav">
+      <ul class="global-nav__list">
+        <li class="global-nav__item active"><a href="">トップ</a></li>
+        <li class="global-nav__item"><a href="">蔵書の検索</a></li>
+        <li class="global-nav__item"><a href="">蔵書の登録</a></li>
+        <li class="global-nav__item"><a href="">貸出状況・履歴</a></li>
+        <li class="global-nav__item"><a href="">My蔵書</a></li>
+        <li class="global-nav__item"><a href="">設定</a></li>
+      </ul>
+    </nav>
+    <!-- ハンバーガーメニュー図 -->
+    <div class="hamburger" id="js-hamburger">
+      <span class="hamburger__line hamburger__line--1"></span>
+      <span class="hamburger__line hamburger__line--2"></span>
+      <span class="hamburger__line hamburger__line--3"></span>
+    </div>
+    <!-- グローバルナビゲーション表示時の背景マスク画面 -->
+    <div class="black-bg" id="js-black-bg"></div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <div id="js-main_body" class="main_body">
+    <!-- 通知表示欄 -->
+    <section id="js-asign" class="asign_container">
+      <span class="section_title">通知</span>
+      <div id="js-main_asign" class="asign_area">
+        <article class="asign_item">
+          <a href="">イベント内容について</a>
+        </article>
+        <article class="asign_item">
+          <a href="">書類フォーマットの変更について</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- トピック表示欄 -->
+    <section id="js-topic" class="topic_container">
+      <span class="section_title">TOPIC</span>
+      <div id="js-main_topic" class="topic_area">
+        <article class="topic_item">
+          <a href="">7月のおすすめ本は、「●●●」です！</a>
+        </article>
+        <article class="topic_item">
+          <a href="">「●●●」が社内蔵書として追加されました！</a>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+  <footer id="js-main_footer" class="footer">
+
+  </footer>
+</body>
+</html>

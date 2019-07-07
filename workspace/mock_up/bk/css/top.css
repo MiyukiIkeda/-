@@ -1,0 +1,63 @@
+/* トピック表示部コンテナ */
+.topic_container,
+.asign_container {
+  /* display: inline-block; */
+  margin: 0 auto;
+  padding: 20px 0;
+  min-width: 450px;
+  max-width: 60%;
+  width: 70%;
+  overflow-y: auto;
+}
+/* トピックセクションのタイトル */
+.topic_container .section_title {
+  margin: 5px 5px;
+  padding: 0px 5px;
+  border: ridge 2px rgb(248,220,140);
+  background-color: rgba(242, 218, 140, 0.5);
+}
+/* 通知セクションのタイトル */
+.asign_container .section_title {
+  margin: 5px 5px;
+  padding: 0px 5px;
+  border: ridge 2px rgb(248,140,140);
+  background-color: rgba(242, 140, 140, 0.5);
+}
+/* トピックを表示するエリア */
+.topic_area {
+  margin: 0;
+  border-radius: 8px;
+  border: ridge 3px rgb(248,220,140);
+  background-color: rgba(242, 218, 140, 0.5);
+}
+/* 通知一覧を表示するエリア */
+.asign_area {
+  margin: 0;
+  border-radius: 8px;
+  border: ridge 3px rgb(248,140,140);
+  background-color: rgba(242, 140, 140, 0.5);
+}
+
+/* トピックの小項目 */
+.topic_item,
+.asign_item {
+  margin: 8px;
+  padding-top: 8px;
+}
+.topic_item + .topic_item,
+.asign_item + .asign_item {
+  border-top: 2px solid rgb(200,200,200);
+}
+.topic_item:last-child,
+.asign_item:last-child {
+  padding-bottom: 8px;
+}
+.topic_item a,
+.asign_item a {
+  text-decoration: none;
+}
+.topic_item a:hover,
+.asign_item a:hover {
+  /* background-color: rgb(213, 211, 210); */
+  text-shadow: 2px 4px 3px rgba(100,100,100,0.3);
+}
