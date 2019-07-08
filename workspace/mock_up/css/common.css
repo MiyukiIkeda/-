@@ -44,12 +44,12 @@ body {
 }
 .header .title {
   font-family: 'arial black';
-  font-size: 30px;
+  font-size: 25px;
   display: block;
   padding: 0;
   margin: 0 auto;
   height: 100%;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: white;
   /* border-bottom: ridge 5px rgb(140, 80, 80); */
   text-align: center;
@@ -156,30 +156,31 @@ body {
   }
   /* クリック用のハンバーガー図 */
   .hamburger {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
-    height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+    width: 36px; /* クリックしやすいようにちゃんと幅を指定する */
+    height: 34px; /* クリックしやすいようにちゃんと高さを指定する */
+    background-color: rgba(100,100,100,0.5);
     cursor: pointer;
     z-index: 300;
   }
   .hamburger__line {
     position: absolute;
-    left: 11px;
+    left: 10px;
     width: 18px;
     height: 2px;
     background-color: white;
     transition: all .6s;
   }
   .hamburger__line--1 {
-    top: 14px;
+    top: 10px;
   }
   .hamburger__line--2 {
-    top: 20px;
+    top: 16px;
   }
   .hamburger__line--3 {
-    top: 26px;
+    top: 22px;
   }
   /* メニュー押下時の表示画面（小項目リスト） */
   .global-nav__list {
