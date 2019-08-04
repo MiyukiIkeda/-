@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.family_selector {
+  height: 70vh;
+  width: 98vw;
+  overflow: auto;
+}
+.sample_area {
+  padding: 10px;
+  border: ridge 3px silver;
+  background-color: rgba(240,240,240,0.8);
+}
+.main_table .title {
+  background-color: rgb(140,170,255);
+}
+
+.main_table table td {
+  cursor: pointer;
+}
+.main_table table td:hover {
+  background-color: rgba(200,200,200,0.8);
+}
