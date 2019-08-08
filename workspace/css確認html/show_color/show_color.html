@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>カラー確認</title>
+  <style>
+
+    body{
+      text-align: center;
+    }
+
+    #color_box {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(0,0,0);
+      box-shadow: 0px 0px 3px gray;
+      margin: 0 auto;
+    }
+
+    #color_controller {
+      position: relative;
+      width: 350px;
+      height: 220px;
+      background-color: rgba(30, 30, 30, 0.9);
+      box-shadow: 0px 0px 3px gray;
+      margin: 0 auto;
+    }
+
+    #color_controller p:first-child{
+      color: white;
+      padding: 0px;
+      margin: 15px 0px 0px;
+      border: 2px ridge gray;
+      background-color: inherit;
+    }
+
+    #color_controller table {
+      margin: 0 auto;
+      padding: 10px;
+      table-layout: fixed;
+    }
+
+    #color_controller td{
+      color: white;
+      line-height: 25px;
+      width: 50px;
+    }
+
+    #css_text {
+      color:white;
+    }
+
+    #select_mode {
+      background-color: rgb(100, 100, 100);
+      color: white;
+    }
+
+    #select_mode span {
+      display: inline-block;
+      width: 50%;
+      box-sizing: border-box;
+      background-color: rgb(60, 60, 60);
+      border: 2px ridge gray;
+    }
+
+    #select_mode span:hover {
+      opacity: 0.6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+  </style>
+
+</head>
+<body>
+  <script>
+    window.addEventListener('DOMContentLoaded', function(){
+      const rngElm = document.querySelectorAll('input[type="range"]');
+      const colorBox = document.getElementById('color_box');
+      const modeSelector = document.getElementById('select_mode');
+      const rgbTable = document.getElementById('rgb_color_table');
+      const hslTable = document.getElementById('hsl_color_table');
+      const RGB_mode = 0;
+      const HSL_mode = 1;
+
+      var ColorBox = function(){
+        this.colorBox = colorBox;
+        this.mode = RGB_mode;
+        this.rgbColor = 'rgb(0,0,0)';
+        this.hslColor = 'hsl(0,0%,0%)';
+      }
+
+      ColorBox.prototype = {
+        toggleMode: function(){
+          if(this.mode == RGB_mode){
+            this.switchHsl();
+          }else if(this.mode == HSL_mode){
+            this.switchRgb();
+          }
+        },
+        switchRgb: function(){
+          this.mode = RGB_mode;
+          this.colorBox.style.backgroundColor = this.rgbColor;
+        },
+        switchHsl: function(){
+          this.mode = HSL_mode;
+          this.colorBox.style.backgroundColor = this.hslColor;
+        },
+        setColor: function(){
+          if(this.mode == RGB_mode){
+            this.colorBox.style.backgroundColor = this.rgbColor;
+          }else if(this.mode == HSL_mode){
+            this.colorBox.style.backgroundColor = this.hslColor;
+          }
+        }
+      }
+
+      var RgbSlider = function(){
+        this.red = 0;
+        this.green = 0;
+        this.blue = 0;
+        this.targetElement = colorBox.cloneNode(true);
+        this.backgroundColor = this.targetElement.style.backgroundColor;
+      }
+
+      RgbSlider.prototype = {
+        setBgColor: function(){
+                      this.targetElement.style.backgroundColor = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
+                      this.backgroundColor =  this.targetElement.style.backgroundColor;
+                    },
+        setProp: function(elm){
+                      switch(elm.name){
+                        case "red":
+                          this.red = elm.value;
+                          break;
+                        case "green":
+                          this.green = elm.value;
+                          break;
+                        case "blue":
+                          this.blue = elm.value;
+                          break;
+                        default:
+                          break;
+                      }
+                      this.setBgColor();
+                    },
+        getBgColor: function(){
+          return this.backgroundColor;
+        }
+      }
+
+      var HslSlider = function(){
+        this.hue = 0;
+        this.saturation = 0;
+        this.light = 0;
+        this.targetElement = colorBox.cloneNode(true);
+        this.backgroundColor = this.targetElement.style.backgroundColor;
+      }
+
+      HslSlider.prototype = {
+        setBgColor: function(){
+                      this.targetElement.style.backgroundColor = 'hsl(' + this.hue + ', ' + this.saturation + '%, ' + this.light + '%)';
+                      this.backgroundColor =  this.targetElement.style.backgroundColor;
+                    },
+        setProp: function(elm){
+                      switch(elm.name){
+                        case "hue":
+                          this.hue = elm.value;
+                          break;
+                        case "saturation":
+                          this.saturation = elm.value;
+                          break;
+                        case "light":
+                          this.light = elm.value;
+                          break;
+                        default:
+                          break;
+                      }
+                      this.setBgColor();
+                    },
+        getBgColor: function(){
+          return this.backgroundColor;
+        }
+      }
+
+
+      var cb = new ColorBox();
+      var rgbs = new RgbSlider();
+      var hsls = new HslSlider();
+
+      modeSelector.addEventListener('click', function(e){
+        if(e.target.getAttribute('name') == "rgb"){
+          rgbTable.classList.remove('hidden');
+          hslTable.classList.add('hidden');
+          cb.switchRgb();
+        }else if(e.target.getAttribute('name') == "hsl"){
+          rgbTable.classList.add('hidden');
+          hslTable.classList.remove('hidden');
+          cb.switchHsl();
+        }
+        document.getElementById('css_text').textContent = colorBox.style.cssText;
+      });
+
+      rngElm.forEach(function(elm){
+        elm.addEventListener('input', function(){
+          var parentElm = this.parentNode;
+          var targetElm = parentElm.nextElementSibling;
+          targetElm.textContent = elm.value;
+
+          if(cb.mode == RGB_mode){
+            rgbs.setProp(elm);
+            cb.rgbColor = rgbs.getBgColor();
+          }else if(cb.mode = HSL_mode){
+            hsls.setProp(elm);
+            cb.hslColor = hsls.getBgColor();
+          }
+          cb.setColor();
+          document.getElementById('css_text').textContent = colorBox.style.cssText;
+        }, false);
+      });
+
+      document.getElementById('css_text').textContent = colorBox.style.cssText;
+
+    });
+  </script>
+  <p>からー</p>
+  <div id="color_box"></div>
+  <div id="color_controller">
+    <p>Slide This Bar!</p>
+    <div id="select_mode"><span name="rgb">RGB</span><span name="hsl">HSL</span></div>
+    <div class="switch_table" id="rgb_color_table">
+      <table>
+        <tr>
+          <td>赤：</td>
+          <td><input type="range" id="slide_red_rgb" name="red" min="0" max="255" step="1" value="0"></td>
+          <td class="value_cell">0</td>
+        </tr>
+        <tr>
+          <td>緑：</td>
+          <td><input type="range" id="slide_green_rgb" name="green" min="0" max="255" step="1" value="0"></td>
+          <td class="value_cell">0</td>
+        </tr>
+        <tr>
+          <td>青：</td>
+          <td><input type="range" id="slide_blue_rgb" name="blue" min="0" max="255" step="1" value="0"></td>
+          <td class="value_cell">0</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="switch_table hidden" id="hsl_color_table">
+      <table>
+        <tr>
+          <td>色相：</td>
+          <td><input type="range" id="slide_hue_hsl" name="hue" min="0" max="360" step="1" value="0"></td>
+          <td class="value_cell">0</td>
+        </tr>
+        <tr>
+          <td>彩度：</td>
+          <td><input type="range" id="slide_sat_hsl" name="saturation" min="0" max="100" step="1" value="0"></td>
+          <td class="value_cell">0</td>
+        </tr>
+        <tr>
+          <td>明度：</td>
+          <td><input type="range" id="slide_light_hsl" name="light" min="0" max="100" step="1" value="0"></td>
+          <td class="value_cell">0</td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+        <span id="css_text"></span>
+    </div>
+  </div>
+</body>
+</html>
