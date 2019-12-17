@@ -1,0 +1,180 @@
+
+/* --- デバイス共通デザイン --- */
+body {
+  font-family: 'メイリオ' , monospace;
+}
+.header {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgb(200, 200, 255);
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+.main_body {
+  position: relative;
+  margin: 0 auto;
+}
+.footer {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(230, 230, 230);
+}
+.header .title {
+  padding: 0;
+  margin: 0 auto;
+  top: 0;
+  left: 5%;
+  border-bottom: ridge 5px rgb(140, 140, 255);
+  text-align: center;
+}
+
+
+/* --- PC用デザイン --- */
+@media screen and (min-width:601px) {
+  /* メニュー押下時の表示画面（全体） */
+  .global-nav {
+    right: 0px; /* これで隠れる */
+    top: 0;
+    float: right;
+    width: 100%;
+    padding-top: 5px;
+    background-color: rgb(200, 230, 255);
+    transition: all .6s;
+    z-index: 200;
+  }
+  /* クリック用のハンバーガー図 */
+  .hamburger {
+    display: none;
+  }
+
+  /* メニュー押下時の表示画面（小項目リスト） */
+  .global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* メニュー押下時の表示画面（小項目） */
+  .global-nav__item {
+    float: left;
+    text-align: center;
+    padding: 0px 5px;
+    box-sizing: border-box;
+  }
+  .global-nav__item + .global-nav__item {
+    border-left: 1px solid silver;
+  }
+  /* メニュー押下時の表示画面（小項目内リンク） */
+  .global-nav__item a {
+    padding: 0;
+    text-decoration: none;
+    color: #111;
+    cursor: pointer;
+  }
+  /* 小項目内リンクをマウスオーバー時色を変える */
+  .global-nav__item a:hover {
+    background-color: #eee;
+  }
+}
+
+
+/* --- スマホ用デザイン --- */
+@media screen and (max-width:600px) {
+  /* メニュー押下時の表示画面（全体） */
+  .global-nav {
+    position: fixed;
+    right: -320px; /* これで隠れる */
+    top: 0;
+    width: 300px; /* スマホに収まるくらい */
+    height: 100vh;
+    padding-top: 40px;
+    background-color: #fff;
+    transition: all .6s;
+    z-index: 200;
+    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+  }
+  /* クリック用のハンバーガー図 */
+  .hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+    height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+    cursor: pointer;
+    z-index: 300;
+  }
+  .hamburger__line {
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 1px;
+    background-color: #111;
+    transition: all .6s;
+  }
+  .hamburger__line--1 {
+    top: 14px;
+  }
+  .hamburger__line--2 {
+    top: 20px;
+  }
+  .hamburger__line--3 {
+    top: 26px;
+  }
+  /* メニュー押下時の表示画面（小項目リスト） */
+  .global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* メニュー押下時の表示画面（小項目） */
+  .global-nav__item {
+    text-align: center;
+    padding: 0 14px;
+  }
+  /* メニュー押下時の表示画面（小項目内リンク） */
+  .global-nav__item a {
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #111;
+  }
+  /* 小項目内リンクをマウスオーバー時色を変える */
+  .global-nav__item a:hover {
+    background-color: #eee;
+  }
+  /* メニュー押下時の背景画面 */
+  .black-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .6s;
+    cursor: pointer;
+  }
+  /* 表示された時用のCSS */
+  .nav-open .global-nav {
+    right: 0;
+  }
+  .nav-open .black-bg {
+    opacity: .4;
+    visibility: visible;
+  }
+  .nav-open .hamburger__line--1 {
+    transform: rotate(405deg);
+    top: 20px;
+  }
+  .nav-open .hamburger__line--2 {
+    width: 0;
+    left: 50%;
+  }
+  .nav-open .hamburger__line--3 {
+    transform: rotate(-405deg);
+    top: 20px;
+  }
+}
