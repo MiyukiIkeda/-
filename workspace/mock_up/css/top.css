@@ -1,4 +1,4 @@
-/* トピック表示部コンテナ */
+/* 連絡欄表示コンテナ */
 .topic_container,
 .asign_container {
   /* display: inline-block; */
@@ -17,7 +17,9 @@
   padding: 0.5em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
   line-height: 1.3;/*行高*/
-  background: rgb(240, 240, 255);/*背景色*/
+  /*background: rgb(240, 240, 255);*//*背景色*/
+  /* background: #ffe8d6; */
+  background: hsl(30, 100%, 90%);
   vertical-align: middle;
   /* background-color: rgb(240, 240, 240); */
 }
@@ -32,9 +34,10 @@
 .asign_area {
   margin: 0;
   /* border-radius: 8px; */
-  border-top: double 2px rgb(100,100,240);
-  border-bottom: double 2px rgb(100,100,240);
-  background-color: rgb(240, 240, 255);
+  border-top: double 2px hsl(30, 100%, 60%);
+  border-bottom: double 2px hsl(30, 100%, 60%);
+  /*background-color: rgb(240, 240, 255);*/
+  background-color: hsl(30, 10%, 98%);
   /* box-shadow: 1px 4px 3px rgb(200,200,200); */
 }
 
@@ -46,7 +49,8 @@
   padding: 0.5em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
   line-height: 1.3;/*行高*/
-  background: rgb(255, 245, 220);/*背景色*/
+  /*background: rgb(255, 245, 220);*//*背景色*/
+  background: hsl(30, 100%, 90%);
   vertical-align: middle;
   /* border: ridge 2px rgb(255,238,200);
   background-color: rgba(255,238,200, 0.9); */
@@ -60,9 +64,10 @@
 .topic_area {
   margin: 0;
   /* border-radius: 8px; */
-  border-top: double 2px rgb(220,180,160);
-  border-bottom: double 2px rgb(220,180,160);
-  background-color: rgb(255, 245, 220);
+  border-top: double 2px hsl(30, 100%, 60%);
+  border-bottom: double 2px hsl(30, 100%, 60%);
+  /*background-color: rgb(255, 245, 220);*/
+  background-color: hsl(30, 10%, 98%);
   /* box-shadow: 0 1px 4px 3px rgb(200,200,200); */
 }
 
@@ -75,7 +80,8 @@
 }
 .topic_item + .topic_item,
 .asign_item + .asign_item {
-  border-top: 2px solid rgb(200,200,200);
+  /* border-top: 2px solid rgb(200,200,200); */
+  border-top: 2px solid lightGray;
 }
 .topic_item:last-child,
 .asign_item:last-child {
