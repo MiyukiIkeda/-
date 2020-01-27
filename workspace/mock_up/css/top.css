@@ -1,0 +1,98 @@
+/* 連絡欄表示コンテナ */
+.topic_container,
+.asign_container {
+  /* display: inline-block; */
+  margin: 0 auto;
+  padding: 20px 0;
+  min-width: 300px;
+  max-width: 55vw;
+  width: 65vw;
+  overflow-y: auto;
+}
+/* 通知セクションのタイトル */
+.asign_container .section_title {
+  /* margin: 0px 5px;
+  padding: 0px 5px; */
+  color: #505050;/*文字色*/
+  padding: 0.5em;/*文字周りの余白*/
+  display: inline-block;/*おまじない*/
+  line-height: 1.3;/*行高*/
+  /*background: rgb(240, 240, 255);*//*背景色*/
+  /* background: #ffe8d6; */
+  background: hsl(30, 100%, 90%);
+  vertical-align: middle;
+  /* background-color: rgb(240, 240, 240); */
+}
+.asign_container .section_title:before {
+  content: '●';
+  color: white;
+  margin-right: 8px;
+}
+
+
+/* 通知一覧を表示するエリア */
+.asign_area {
+  margin: 0;
+  /* border-radius: 8px; */
+  border-top: double 2px hsl(30, 100%, 60%);
+  border-bottom: double 2px hsl(30, 100%, 60%);
+  /*background-color: rgb(240, 240, 255);*/
+  background-color: hsl(30, 10%, 98%);
+  /* box-shadow: 1px 4px 3px rgb(200,200,200); */
+}
+
+/* トピックセクションのタイトル */
+.topic_container .section_title {
+  /* margin: 5px 5px;
+  padding: 0px 5px; */
+  color: #505050;/*文字色*/
+  padding: 0.5em;/*文字周りの余白*/
+  display: inline-block;/*おまじない*/
+  line-height: 1.3;/*行高*/
+  /*background: rgb(255, 245, 220);*//*背景色*/
+  background: hsl(30, 100%, 90%);
+  vertical-align: middle;
+  /* border: ridge 2px rgb(255,238,200);
+  background-color: rgba(255,238,200, 0.9); */
+}
+.topic_container .section_title:before {
+  content: '●';
+  color: white;
+  margin-right: 8px;
+}
+/* トピックを表示するエリア */
+.topic_area {
+  margin: 0;
+  /* border-radius: 8px; */
+  border-top: double 2px hsl(30, 100%, 60%);
+  border-bottom: double 2px hsl(30, 100%, 60%);
+  /*background-color: rgb(255, 245, 220);*/
+  background-color: hsl(30, 10%, 98%);
+  /* box-shadow: 0 1px 4px 3px rgb(200,200,200); */
+}
+
+
+/* トピックの小項目 */
+.topic_item,
+.asign_item {
+  margin: 8px;
+  padding-top: 8px;
+}
+.topic_item + .topic_item,
+.asign_item + .asign_item {
+  /* border-top: 2px solid rgb(200,200,200); */
+  border-top: 2px solid lightGray;
+}
+.topic_item:last-child,
+.asign_item:last-child {
+  padding-bottom: 8px;
+}
+.topic_item a,
+.asign_item a {
+  text-decoration: none;
+}
+.topic_item a:hover,
+.asign_item a:hover {
+  /* background-color: rgb(213, 211, 210); */
+  text-shadow: 2px 4px 3px rgba(100,100,100,0.3);
+}

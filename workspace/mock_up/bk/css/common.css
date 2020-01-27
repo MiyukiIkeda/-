@@ -1,0 +1,250 @@
+
+/* --- デバイス共通デザイン --- */
+body {
+  font-family: 'メイリオ' , monospace;
+  margin: 0 auto;
+  height: 100vh;
+  width: 96vw;
+}
+.header {
+  position: relative;
+  margin: 0;
+  left: 0;
+  top: 0;
+  height: 8vh;
+  /* background-color: rgb(200, 200, 255); */
+  background: linear-gradient(-45deg, rgba(246, 255, 150, .2), rgba(255, 80, 161, .2)),url("../img/top_menu_1.jpg");
+  background-repeat:  no-repeat;  /* 背景の繰り返し設定 */
+  background-position: top;    /* 背景の位置指定 */
+  background-size: cover;
+  /* box-shadow: 0 2px 6px rgba(0,0,0,.3); */
+  z-index: 900;
+}
+.main_body {
+  position: relative;
+  display: block;
+  margin: 0px auto;
+  padding-top: 30px;
+  height: 80vh;
+  /* background-color: rgba(90, 90, 90, 0.3); */
+  /* background: linear-gradient(-45deg, rgba(200, 200, 200, .7), rgba(200, 200, 200, .7)), url("../img/top_menu_1.jpg"); */
+  background-repeat:  no-repeat;  /* 背景の繰り返し設定 */
+  background-position: center;    /* 背景の位置指定 */
+  background-size: cover;
+  z-index: 800;
+
+}
+.footer {
+  margin: 0;
+  padding: 0;
+  width: 96vw;
+  height: 10vh;
+  /*background-color: rgba(120, 90, 90, 0.6);*/
+  background-color: #ffe8d6;
+  z-index: 700;
+}
+.header .title {
+  font-family: 'arial black';
+  font-size: 25px;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+  letter-spacing: 2px;
+  color: white;
+  /* border-bottom: ridge 5px rgb(140, 80, 80); */
+  text-align: center;
+}
+.header .title .high_light_letter:first-of-type {
+  font-size: 32px;
+  font-weight: bold;
+  /* color: rgb(140, 170, 255); */
+  text-shadow: 0px 4px 4px rgb(140,140,140);
+}
+.header .title .high_light_letter:nth-of-type(2) {
+  font-size: 32px;
+  font-weight: bold;
+  /* color: rgb(140, 170, 255); */
+  text-shadow: 0px 4px 4px rgb(140,140,140);
+}
+.header .title .high_light_letter:nth-of-type(3) {
+  font-size: 32px;
+  font-weight: bold;
+  /* color: rgb(140, 170, 255); */
+  text-shadow: 0px 4px 4px rgb(140,140,140);
+}
+
+/* --- PC用デザイン --- */
+@media screen and (min-width:601px) {
+  /* メニュー押下時の表示画面（全体） */
+  .global-nav {
+    position: relative;
+    top: 0;
+    /* float: right; */
+    display: block;
+    width: 100%;
+    padding-top: 6px;
+    /* background-color: rgb(255, 248, 240); */
+    /* background: linear-gradient(180deg, rgba(140, 70, 70, 0.8), rgba(100, 60, 60, 0.8)); */
+    /* border-bottom: 4px double rgb(140, 170, 255); */
+    /* border-bottom: 6px ridge rgb(100, 100, 100); */
+    box-shadow: 0 3px 3px rgb(200,200,200);
+    transition: all .0s;
+    z-index: 850;
+  }
+  /* クリック用のハンバーガー図 */
+  .hamburger {
+    display: none;
+  }
+  /* メニュー押下時の表示画面（小項目リスト） */
+  .global-nav_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  /* メニュー押下時の表示画面（小項目） */
+  .global-nav_item {
+    /* float: left; */
+    text-align: center;
+    padding: 0px 5px;
+    box-sizing: border-box;
+  }
+  .global-nav_item.active {
+    border-bottom: solid 3px rgb(200, 160, 160);
+  }
+  .global-nav_item + .global-nav_item {
+    border-left: 1px solid silver;
+  }
+  /* メニュー押下時の表示画面（小項目内リンク） */
+  .global-nav_item a {
+    padding: 0;
+    font-family: 'ＭＳ ゴシック';
+    text-decoration: none;
+    /* color: #111; */
+    color: black;
+    cursor: pointer;
+  }
+  /* 小項目内リンクをマウスオーバー時色を変える */
+  .global-nav_item:hover {
+    /* transition: 0.9s; */
+    /* text-shadow: 4px 4px 3px rgba(100,100,100,0.8); */
+    text-shadow: 0px 4px 4px silver;
+  }
+}
+
+
+/* --- スマホ用デザイン --- */
+@media screen and (max-width:600px) {
+  /* メニュー押下時の表示画面（全体） */
+  .global-nav {
+    position: fixed;
+    right: -320px; /* これで隠れる */
+    top: 0;
+    width: 300px; /* スマホに収まるくらい */
+    height: 100vh;
+    padding-top: 40px;
+    background-color: rgba(100,100,100, 0.9);
+    transition: all .0s;
+    z-index: 200;
+    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+  }
+  /* クリック用のハンバーガー図 */
+  .hamburger {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 36px; /* クリックしやすいようにちゃんと幅を指定する */
+    height: 34px; /* クリックしやすいようにちゃんと高さを指定する */
+    background-color: rgba(100,100,100,0.5);
+    cursor: pointer;
+    z-index: 300;
+  }
+  .hamburger_line {
+    position: absolute;
+    left: 10px;
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    transition: all .6s;
+  }
+  .hamburger_line--1 {
+    top: 10px;
+  }
+  .hamburger_line--2 {
+    top: 16px;
+  }
+  .hamburger_line--3 {
+    top: 22px;
+  }
+  /* メニュー押下時の表示画面（小項目リスト） */
+  .global-nav_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* メニュー押下時の表示画面（小項目） */
+  .global-nav_item {
+    text-align: center;
+    padding: 0 14px;
+  }
+  /* .global-nav_item.active a::before {
+    content: '>';
+  } */
+  .global-nav_item.active a {
+    background-color: rgba(200,200,200,0.6);
+  }
+  /* メニュー押下時の表示画面（小項目内リンク） */
+  .global-nav_item a {
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: rgb(240, 240, 240);
+  }
+  /* 小項目内リンクをマウスオーバー時色を変える */
+  .global-nav_item a:hover {
+    /* background-color: #eee; */
+    background-color: rgb(60,60,60);
+  }
+  /* メニュー押下時の背景画面 */
+  .black-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  /* 表示された時用のCSS */
+  .nav-open .global-nav {
+    right: 0;
+  }
+  .nav-open .black-bg {
+    opacity: .4;
+    visibility: visible;
+  }
+  .nav-open .hamburger_line--1 {
+    transform: rotate(405deg);
+    top: 20px;
+  }
+  .nav-open .hamburger_line--2 {
+    width: 0;
+    left: 50%;
+  }
+  .nav-open .hamburger_line--3 {
+    transform: rotate(-405deg);
+    top: 20px;
+  }
+}
